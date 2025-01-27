@@ -1,6 +1,6 @@
 # kube-bench
 
-![Version: 0.1.15](https://img.shields.io/badge/Version-0.1.15-informational?style=flat-square) ![AppVersion: 0.7.1](https://img.shields.io/badge/AppVersion-0.7.1-informational?style=flat-square)
+![Version: 0.1.17](https://img.shields.io/badge/Version-0.1.17-informational?style=flat-square) ![AppVersion: 0.8.0](https://img.shields.io/badge/AppVersion-0.8.0-informational?style=flat-square)
 
 Helm chart to deploy run kube-bench as a cronjob on aks, gke or eks.
 
@@ -8,34 +8,34 @@ Helm chart to deploy run kube-bench as a cronjob on aks, gke or eks.
 
 ## How to install this chart
 
-Add Delivery Hero public chart repo:
+A simple install with default values, latest chart version and generated name:
 
 ```console
-helm repo add deliveryhero https://charts.deliveryhero.io/
+helm install --generate-name oci://ghcr.io/deliveryhero/helm-charts/kube-bench
 ```
 
-A simple install with default values:
+To install a specific version of this chart:
 
 ```console
-helm install deliveryhero/kube-bench
+helm install --generate-name oci://ghcr.io/deliveryhero/helm-charts/kube-bench --version 0.1.17
 ```
 
 To install the chart with the release name `my-release`:
 
 ```console
-helm install my-release deliveryhero/kube-bench
+helm install my-release oci://ghcr.io/deliveryhero/helm-charts/kube-bench
 ```
 
 To install with some set values:
 
 ```console
-helm install my-release deliveryhero/kube-bench --set values_key1=value1 --set values_key2=value2
+helm install my-release oci://ghcr.io/deliveryhero/helm-charts/kube-bench --set values_key1=value1 --set values_key2=value2
 ```
 
 To install with custom values file:
 
 ```console
-helm install my-release deliveryhero/kube-bench -f values.yaml
+helm install my-release oci://ghcr.io/deliveryhero/helm-charts/kube-bench -f values.yaml
 ```
 
 ## Source Code
@@ -54,7 +54,7 @@ helm install my-release deliveryhero/kube-bench -f values.yaml
 | fullnameOverride | string | `""` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"aquasec/kube-bench"` |  |
-| image.tag | string | `"v0.7.1"` |  |
+| image.tag | string | `"v0.8.0"` |  |
 | nameOverride | string | `""` |  |
 | nodeSelector | object | `{}` |  |
 | podLabels | object | `{}` |  |
@@ -84,4 +84,10 @@ helm install my-release deliveryhero/kube-bench -f values.yaml
 
 | Name | Email | Url |
 | ---- | ------ | --- |
-| goelankitt | <no-reply@deliveryhero.com> |  |
+| goelankitt |  | <https://github.com/goelankitt> |
+
+## Chart source and versions
+
+Chart source: [github.com/deliveryhero/helm-charts/kube-bench](https://github.com/deliveryhero/helm-charts/tree/master/stable/kube-bench)
+
+Older chart versions: [github.com/deliveryhero/helm-charts/pkgs/container/helm-charts/kube-bench](https://github.com/deliveryhero/helm-charts/pkgs/container/helm-charts%2Fkube-bench)

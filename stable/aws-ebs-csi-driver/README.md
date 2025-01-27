@@ -1,6 +1,6 @@
 # aws-ebs-csi-driver
 
-![Version: 2.17.1](https://img.shields.io/badge/Version-2.17.1-informational?style=flat-square) ![AppVersion: 1.16.1](https://img.shields.io/badge/AppVersion-1.16.1-informational?style=flat-square)
+![Version: 2.17.4](https://img.shields.io/badge/Version-2.17.4-informational?style=flat-square) ![AppVersion: 1.16.1](https://img.shields.io/badge/AppVersion-1.16.1-informational?style=flat-square)
 
 A Helm chart for AWS EBS CSI Driver
 
@@ -8,38 +8,39 @@ A Helm chart for AWS EBS CSI Driver
 
 ## How to install this chart
 
-Add Delivery Hero public chart repo:
+A simple install with default values, latest chart version and generated name:
 
 ```console
-helm repo add deliveryhero https://charts.deliveryhero.io/
+helm install --generate-name oci://ghcr.io/deliveryhero/helm-charts/aws-ebs-csi-driver
 ```
 
-A simple install with default values:
+To install a specific version of this chart:
 
 ```console
-helm install deliveryhero/aws-ebs-csi-driver
+helm install --generate-name oci://ghcr.io/deliveryhero/helm-charts/aws-ebs-csi-driver --version 2.17.4
 ```
 
 To install the chart with the release name `my-release`:
 
 ```console
-helm install my-release deliveryhero/aws-ebs-csi-driver
+helm install my-release oci://ghcr.io/deliveryhero/helm-charts/aws-ebs-csi-driver
 ```
 
 To install with some set values:
 
 ```console
-helm install my-release deliveryhero/aws-ebs-csi-driver --set values_key1=value1 --set values_key2=value2
+helm install my-release oci://ghcr.io/deliveryhero/helm-charts/aws-ebs-csi-driver --set values_key1=value1 --set values_key2=value2
 ```
 
 To install with custom values file:
 
 ```console
-helm install my-release deliveryhero/aws-ebs-csi-driver -f values.yaml
+helm install my-release oci://ghcr.io/deliveryhero/helm-charts/aws-ebs-csi-driver -f values.yaml
 ```
 
 ## Source Code
 
+* <https://github.com/deliveryhero/helm-charts/tree/master/stable/aws-ebs-csi-driver>
 * <https://github.com/kubernetes-sigs/aws-ebs-csi-driver>
 
 ## Requirements
@@ -196,3 +197,9 @@ Kubernetes: `>=1.17.0-0`
 | Name | Email | Url |
 | ---- | ------ | --- |
 | Kubernetes Authors |  | <https://github.com/kubernetes-sigs/aws-ebs-csi-driver/> |
+
+## Chart source and versions
+
+Chart source: [github.com/deliveryhero/helm-charts/aws-ebs-csi-driver](https://github.com/deliveryhero/helm-charts/tree/master/stable/aws-ebs-csi-driver)
+
+Older chart versions: [github.com/deliveryhero/helm-charts/pkgs/container/helm-charts/aws-ebs-csi-driver](https://github.com/deliveryhero/helm-charts/pkgs/container/helm-charts%2Faws-ebs-csi-driver)

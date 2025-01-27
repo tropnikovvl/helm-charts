@@ -1,6 +1,6 @@
 # aws-service-events-exporter
 
-![Version: 1.0.5](https://img.shields.io/badge/Version-1.0.5-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.0.0](https://img.shields.io/badge/AppVersion-1.0.0-informational?style=flat-square)
+![Version: 1.0.7](https://img.shields.io/badge/Version-1.0.7-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.0.0](https://img.shields.io/badge/AppVersion-1.0.0-informational?style=flat-square)
 
 This helm chart exports aws service events to prometheus via aws SQS queue, this include:
 
@@ -11,34 +11,34 @@ This helm chart exports aws service events to prometheus via aws SQS queue, this
 
 ## How to install this chart
 
-Add Delivery Hero public chart repo:
+A simple install with default values, latest chart version and generated name:
 
 ```console
-helm repo add deliveryhero https://charts.deliveryhero.io/
+helm install --generate-name oci://ghcr.io/deliveryhero/helm-charts/aws-service-events-exporter
 ```
 
-A simple install with default values:
+To install a specific version of this chart:
 
 ```console
-helm install deliveryhero/aws-service-events-exporter
+helm install --generate-name oci://ghcr.io/deliveryhero/helm-charts/aws-service-events-exporter --version 1.0.7
 ```
 
 To install the chart with the release name `my-release`:
 
 ```console
-helm install my-release deliveryhero/aws-service-events-exporter
+helm install my-release oci://ghcr.io/deliveryhero/helm-charts/aws-service-events-exporter
 ```
 
 To install with some set values:
 
 ```console
-helm install my-release deliveryhero/aws-service-events-exporter --set values_key1=value1 --set values_key2=value2
+helm install my-release oci://ghcr.io/deliveryhero/helm-charts/aws-service-events-exporter --set values_key1=value1 --set values_key2=value2
 ```
 
 To install with custom values file:
 
 ```console
-helm install my-release deliveryhero/aws-service-events-exporter -f values.yaml
+helm install my-release oci://ghcr.io/deliveryhero/helm-charts/aws-service-events-exporter -f values.yaml
 ```
 
 ## Source Code
@@ -79,5 +79,11 @@ helm install my-release deliveryhero/aws-service-events-exporter -f values.yaml
 
 | Name | Email | Url |
 | ---- | ------ | --- |
-| nyambati | <no-reply@deliveryhero.com> |  |
-| javad-hajiani | <no-reply@deliveryhero.com> |  |
+| nyambati |  | <https://github.com/nyambati> |
+| javad-hajiani |  | <https://github.com/javad-hajiani> |
+
+## Chart source and versions
+
+Chart source: [github.com/deliveryhero/helm-charts/aws-service-events-exporter](https://github.com/deliveryhero/helm-charts/tree/master/stable/aws-service-events-exporter)
+
+Older chart versions: [github.com/deliveryhero/helm-charts/pkgs/container/helm-charts/aws-service-events-exporter](https://github.com/deliveryhero/helm-charts/pkgs/container/helm-charts%2Faws-service-events-exporter)

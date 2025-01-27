@@ -1,6 +1,6 @@
 # mlflow
 
-![Version: 1.0.9](https://img.shields.io/badge/Version-1.0.9-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.9.1](https://img.shields.io/badge/AppVersion-1.9.1-informational?style=flat-square)
+![Version: 1.0.10](https://img.shields.io/badge/Version-1.0.10-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.9.1](https://img.shields.io/badge/AppVersion-1.9.1-informational?style=flat-square)
 
 A Helm chart to install MLflow tracking, a tool to track Machine Learning experiments.
 
@@ -11,34 +11,34 @@ Contributions for other backends and artifacts store are welcome.
 
 ## How to install this chart
 
-Add Delivery Hero public chart repo:
+A simple install with default values, latest chart version and generated name:
 
 ```console
-helm repo add deliveryhero https://charts.deliveryhero.io/
+helm install --generate-name oci://ghcr.io/deliveryhero/helm-charts/mlflow
 ```
 
-A simple install with default values:
+To install a specific version of this chart:
 
 ```console
-helm install deliveryhero/mlflow
+helm install --generate-name oci://ghcr.io/deliveryhero/helm-charts/mlflow --version 1.0.10
 ```
 
 To install the chart with the release name `my-release`:
 
 ```console
-helm install my-release deliveryhero/mlflow
+helm install my-release oci://ghcr.io/deliveryhero/helm-charts/mlflow
 ```
 
 To install with some set values:
 
 ```console
-helm install my-release deliveryhero/mlflow --set values_key1=value1 --set values_key2=value2
+helm install my-release oci://ghcr.io/deliveryhero/helm-charts/mlflow --set values_key1=value1 --set values_key2=value2
 ```
 
 To install with custom values file:
 
 ```console
-helm install my-release deliveryhero/mlflow -f values.yaml
+helm install my-release oci://ghcr.io/deliveryhero/helm-charts/mlflow -f values.yaml
 ```
 
 ## Source Code
@@ -89,4 +89,10 @@ helm install my-release deliveryhero/mlflow -f values.yaml
 
 | Name | Email | Url |
 | ---- | ------ | --- |
-| mkuhn | <no-reply@deliveryhero.com> | <https://github.com/magdalenakuhn17> |
+| mkuhn |  | <https://github.com/magdalenakuhn17> |
+
+## Chart source and versions
+
+Chart source: [github.com/deliveryhero/helm-charts/mlflow](https://github.com/deliveryhero/helm-charts/tree/master/stable/mlflow)
+
+Older chart versions: [github.com/deliveryhero/helm-charts/pkgs/container/helm-charts/mlflow](https://github.com/deliveryhero/helm-charts/pkgs/container/helm-charts%2Fmlflow)

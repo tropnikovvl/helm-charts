@@ -16,3 +16,10 @@ __pycache__
 .idea/
 *.tmproj
 .vscode/
+
+*.tgz
+*.prov
+passphrase.txt
+
+requirements.lock
+Chart.lock

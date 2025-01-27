@@ -1,6 +1,6 @@
 # hoppscotch
 
-![Version: 0.2.8](https://img.shields.io/badge/Version-0.2.8-informational?style=flat-square) ![AppVersion: v1.9.9](https://img.shields.io/badge/AppVersion-v1.9.9-informational?style=flat-square)
+![Version: 0.3.1](https://img.shields.io/badge/Version-0.3.1-informational?style=flat-square) ![AppVersion: 2024.8.2](https://img.shields.io/badge/AppVersion-2024.8.2-informational?style=flat-square)
 
 A free, fast and beautiful API request builder
 
@@ -8,34 +8,34 @@ A free, fast and beautiful API request builder
 
 ## How to install this chart
 
-Add Delivery Hero public chart repo:
+A simple install with default values, latest chart version and generated name:
 
 ```console
-helm repo add deliveryhero https://charts.deliveryhero.io/
+helm install --generate-name oci://ghcr.io/deliveryhero/helm-charts/hoppscotch
 ```
 
-A simple install with default values:
+To install a specific version of this chart:
 
 ```console
-helm install deliveryhero/hoppscotch
+helm install --generate-name oci://ghcr.io/deliveryhero/helm-charts/hoppscotch --version 0.3.1
 ```
 
 To install the chart with the release name `my-release`:
 
 ```console
-helm install my-release deliveryhero/hoppscotch
+helm install my-release oci://ghcr.io/deliveryhero/helm-charts/hoppscotch
 ```
 
 To install with some set values:
 
 ```console
-helm install my-release deliveryhero/hoppscotch --set values_key1=value1 --set values_key2=value2
+helm install my-release oci://ghcr.io/deliveryhero/helm-charts/hoppscotch --set values_key1=value1 --set values_key2=value2
 ```
 
 To install with custom values file:
 
 ```console
-helm install my-release deliveryhero/hoppscotch -f values.yaml
+helm install my-release oci://ghcr.io/deliveryhero/helm-charts/hoppscotch -f values.yaml
 ```
 
 ## Source Code
@@ -48,8 +48,8 @@ helm install my-release deliveryhero/hoppscotch -f values.yaml
 |-----|------|---------|-------------|
 | fullnameOverride | string | `""` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
-| image.repository | string | `"liyasthomas/postwoman"` |  |
-| image.tag | string | `"v1.9.9"` |  |
+| image.repository | string | `"hoppscotch/hoppscotch"` |  |
+| image.tag | string | `"2024.8.2"` |  |
 | ingress.annotations | object | `{}` |  |
 | ingress.enabled | bool | `false` |  |
 | ingress.hosts[0].host | string | `"chart-example.local"` |  |
@@ -69,4 +69,10 @@ helm install my-release deliveryhero/hoppscotch -f values.yaml
 
 | Name | Email | Url |
 | ---- | ------ | --- |
-| javad-hajiani | <no-reply@deliveryhero.com> |  |
+| javad-hajiani |  | <https://github.com/javad-hajiani> |
+
+## Chart source and versions
+
+Chart source: [github.com/deliveryhero/helm-charts/hoppscotch](https://github.com/deliveryhero/helm-charts/tree/master/stable/hoppscotch)
+
+Older chart versions: [github.com/deliveryhero/helm-charts/pkgs/container/helm-charts/hoppscotch](https://github.com/deliveryhero/helm-charts/pkgs/container/helm-charts%2Fhoppscotch)

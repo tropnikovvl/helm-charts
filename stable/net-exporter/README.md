@@ -1,6 +1,6 @@
 # net-exporter
 
-![Version: 1.10.4](https://img.shields.io/badge/Version-1.10.4-informational?style=flat-square) ![AppVersion: 1.10.3](https://img.shields.io/badge/AppVersion-1.10.3-informational?style=flat-square)
+![Version: 1.10.5](https://img.shields.io/badge/Version-1.10.5-informational?style=flat-square) ![AppVersion: 1.10.3](https://img.shields.io/badge/AppVersion-1.10.3-informational?style=flat-square)
 
 Helm chart for net-exporter.
 
@@ -8,34 +8,34 @@ Helm chart for net-exporter.
 
 ## How to install this chart
 
-Add Delivery Hero public chart repo:
+A simple install with default values, latest chart version and generated name:
 
 ```console
-helm repo add deliveryhero https://charts.deliveryhero.io/
+helm install --generate-name oci://ghcr.io/deliveryhero/helm-charts/net-exporter
 ```
 
-A simple install with default values:
+To install a specific version of this chart:
 
 ```console
-helm install deliveryhero/net-exporter
+helm install --generate-name oci://ghcr.io/deliveryhero/helm-charts/net-exporter --version 1.10.5
 ```
 
 To install the chart with the release name `my-release`:
 
 ```console
-helm install my-release deliveryhero/net-exporter
+helm install my-release oci://ghcr.io/deliveryhero/helm-charts/net-exporter
 ```
 
 To install with some set values:
 
 ```console
-helm install my-release deliveryhero/net-exporter --set values_key1=value1 --set values_key2=value2
+helm install my-release oci://ghcr.io/deliveryhero/helm-charts/net-exporter --set values_key1=value1 --set values_key2=value2
 ```
 
 To install with custom values file:
 
 ```console
-helm install my-release deliveryhero/net-exporter -f values.yaml
+helm install my-release oci://ghcr.io/deliveryhero/helm-charts/net-exporter -f values.yaml
 ```
 
 ## Values
@@ -71,3 +71,9 @@ helm install my-release deliveryhero/net-exporter -f values.yaml
 | Name | Email | Url |
 | ---- | ------ | --- |
 | pciang |  | <https://github.com/pciang> |
+
+## Chart source and versions
+
+Chart source: [github.com/deliveryhero/helm-charts/net-exporter](https://github.com/deliveryhero/helm-charts/tree/master/stable/net-exporter)
+
+Older chart versions: [github.com/deliveryhero/helm-charts/pkgs/container/helm-charts/net-exporter](https://github.com/deliveryhero/helm-charts/pkgs/container/helm-charts%2Fnet-exporter)

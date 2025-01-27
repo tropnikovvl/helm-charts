@@ -1,6 +1,6 @@
 # cortex-gateway
 
-![Version: 0.1.8](https://img.shields.io/badge/Version-0.1.8-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: v1.1.0](https://img.shields.io/badge/AppVersion-v1.1.0-informational?style=flat-square)
+![Version: 0.1.9](https://img.shields.io/badge/Version-0.1.9-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: v1.1.0](https://img.shields.io/badge/AppVersion-v1.1.0-informational?style=flat-square)
 
 A Helm chart for cortex-gateway
 
@@ -8,34 +8,34 @@ A Helm chart for cortex-gateway
 
 ## How to install this chart
 
-Add Delivery Hero public chart repo:
+A simple install with default values, latest chart version and generated name:
 
 ```console
-helm repo add deliveryhero https://charts.deliveryhero.io/
+helm install --generate-name oci://ghcr.io/deliveryhero/helm-charts/cortex-gateway
 ```
 
-A simple install with default values:
+To install a specific version of this chart:
 
 ```console
-helm install deliveryhero/cortex-gateway
+helm install --generate-name oci://ghcr.io/deliveryhero/helm-charts/cortex-gateway --version 0.1.9
 ```
 
 To install the chart with the release name `my-release`:
 
 ```console
-helm install my-release deliveryhero/cortex-gateway
+helm install my-release oci://ghcr.io/deliveryhero/helm-charts/cortex-gateway
 ```
 
 To install with some set values:
 
 ```console
-helm install my-release deliveryhero/cortex-gateway --set values_key1=value1 --set values_key2=value2
+helm install my-release oci://ghcr.io/deliveryhero/helm-charts/cortex-gateway --set values_key1=value1 --set values_key2=value2
 ```
 
 To install with custom values file:
 
 ```console
-helm install my-release deliveryhero/cortex-gateway -f values.yaml
+helm install my-release oci://ghcr.io/deliveryhero/helm-charts/cortex-gateway -f values.yaml
 ```
 
 ## Values
@@ -81,4 +81,10 @@ helm install my-release deliveryhero/cortex-gateway -f values.yaml
 
 | Name | Email | Url |
 | ---- | ------ | --- |
-| goelankitt | <no-reply@deliveryhero.com> |  |
+| goelankitt |  | <https://github.com/goelankitt> |
+
+## Chart source and versions
+
+Chart source: [github.com/deliveryhero/helm-charts/cortex-gateway](https://github.com/deliveryhero/helm-charts/tree/master/stable/cortex-gateway)
+
+Older chart versions: [github.com/deliveryhero/helm-charts/pkgs/container/helm-charts/cortex-gateway](https://github.com/deliveryhero/helm-charts/pkgs/container/helm-charts%2Fcortex-gateway)

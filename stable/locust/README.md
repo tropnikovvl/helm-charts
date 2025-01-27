@@ -1,6 +1,6 @@
 # locust
 
-![Version: 0.31.5](https://img.shields.io/badge/Version-0.31.5-informational?style=flat-square) ![AppVersion: 2.15.1](https://img.shields.io/badge/AppVersion-2.15.1-informational?style=flat-square)
+![Version: 0.32.4](https://img.shields.io/badge/Version-0.32.4-informational?style=flat-square) ![AppVersion: 2.32.2](https://img.shields.io/badge/AppVersion-2.32.2-informational?style=flat-square)
 
 A chart to install Locust, a scalable load testing tool written in Python.
 
@@ -18,7 +18,7 @@ kubectl create configmap my-loadtest-lib --from-file path/to/your/lib/
 And then install the chart passing the names of those configmaps as values:
 
 ```console
-helm install locust deliveryhero/locust \
+helm install locust oci://ghcr.io/deliveryhero/helm-charts/locust \
   --set loadtest.name=my-loadtest \
   --set loadtest.locust_locustfile_configmap=my-loadtest-locustfile \
   --set loadtest.locust_lib_configmap=my-loadtest-lib
@@ -28,34 +28,34 @@ helm install locust deliveryhero/locust \
 
 ## How to install this chart
 
-Add Delivery Hero public chart repo:
+A simple install with default values, latest chart version and generated name:
 
 ```console
-helm repo add deliveryhero https://charts.deliveryhero.io/
+helm install --generate-name oci://ghcr.io/deliveryhero/helm-charts/locust
 ```
 
-A simple install with default values:
+To install a specific version of this chart:
 
 ```console
-helm install deliveryhero/locust
+helm install --generate-name oci://ghcr.io/deliveryhero/helm-charts/locust --version 0.32.4
 ```
 
 To install the chart with the release name `my-release`:
 
 ```console
-helm install my-release deliveryhero/locust
+helm install my-release oci://ghcr.io/deliveryhero/helm-charts/locust
 ```
 
 To install with some set values:
 
 ```console
-helm install my-release deliveryhero/locust --set values_key1=value1 --set values_key2=value2
+helm install my-release oci://ghcr.io/deliveryhero/helm-charts/locust --set values_key1=value1 --set values_key2=value2
 ```
 
 To install with custom values file:
 
 ```console
-helm install my-release deliveryhero/locust -f values.yaml
+helm install my-release oci://ghcr.io/deliveryhero/helm-charts/locust -f values.yaml
 ```
 
 ## Values
@@ -65,11 +65,12 @@ helm install my-release deliveryhero/locust -f values.yaml
 | affinity | object | `{}` |  |
 | extraConfigMaps | object | `{}` | Any extra configmaps to mount for the master and worker. Can be used for extra python packages |
 | extraLabels | object | `{}` | Any extra labels to apply to all resources |
+| extraObjects | list | `[]` | Any extra manifests to deploy alongside locust. Can be used for external secret providers |
 | fullnameOverride | string | `""` |  |
 | hostAliases | list | `[]` | List of entries added to the /etc/hosts file on the pod to resolve custom hosts |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"locustio/locust"` |  |
-| image.tag | string | `"2.15.1"` |  |
+| image.tag | string | `"2.32.2"` |  |
 | imagePullSecrets | list | `[]` |  |
 | ingress.annotations | object | `{}` |  |
 | ingress.className | string | `""` |  |
@@ -95,7 +96,7 @@ helm install my-release deliveryhero/locust -f values.yaml
 | loadtest.tags | string | `""` | whether to run locust with `--tags [TAG [TAG ...]]` options, so only tasks with any matching tags will be executed |
 | master.affinity | object | `{}` | Overwrites affinity from global |
 | master.args | list | `[]` | Any extra command args for the master |
-| master.auth.enabled | bool | `false` | When enabled, UI basic auth will be enforced with the given username and password |
+| master.auth.enabled | bool | `false` | When enabled using image tag 2.21.0 or later you do not need username or pass word. Older image tags you are required to |
 | master.auth.password | string | `""` |  |
 | master.auth.username | string | `""` |  |
 | master.command[0] | string | `"sh"` |  |
@@ -103,14 +104,25 @@ helm install my-release deliveryhero/locust -f values.yaml
 | master.deploymentAnnotations | object | `{}` | Annotations on the deployment for master |
 | master.environment | object | `{}` | environment variables for the master |
 | master.envs_include_default | bool | `true` | Whether to include default environment variables |
+| master.extraPorts | string | `nil` |  |
 | master.image | string | `""` | A custom docker image including tag |
+| master.livenessProbe | object | `{}` |  |
 | master.logLevel | string | `"INFO"` | Log level. Can be INFO or DEBUG |
 | master.nodeSelector | object | `{}` | Overwrites nodeSelector from global |
 | master.pdb.enabled | bool | `false` | Whether to create a PodDisruptionBudget for the master pod |
+| master.readinessProbe.failureThreshold | int | `2` |  |
+| master.readinessProbe.httpGet.path | string | `"/"` |  |
+| master.readinessProbe.httpGet.port | int | `8089` |  |
+| master.readinessProbe.httpGet.scheme | string | `"HTTP"` |  |
+| master.readinessProbe.initialDelaySeconds | int | `5` |  |
+| master.readinessProbe.periodSeconds | int | `30` |  |
+| master.readinessProbe.successThreshold | int | `1` |  |
+| master.readinessProbe.timeoutSeconds | int | `30` |  |
 | master.replicas | int | `1` | Should be set to either 0 or 1. |
 | master.resources | object | `{}` | resources for the locust master |
 | master.restartPolicy | string | `"Always"` | master pod's restartPolicy. Can be Always, OnFailure, or Never. |
 | master.serviceAccountAnnotations | object | `{}` |  |
+| master.startupProbe | object | `{}` |  |
 | master.strategy.type | string | `"RollingUpdate"` |  |
 | master.tolerations | list | `[]` | Overwrites tolerations from global |
 | nameOverride | string | `""` |  |
@@ -119,6 +131,9 @@ helm install my-release deliveryhero/locust -f values.yaml
 | securityContext | object | `{}` |  |
 | service.annotations | object | `{}` |  |
 | service.extraLabels | object | `{}` |  |
+| service.loadBalancerIP | string | `""` |  |
+| service.port | int | `8089` |  |
+| service.targetPort | int | `8089` |  |
 | service.type | string | `"ClusterIP"` |  |
 | tolerations | list | `[]` |  |
 | worker.affinity | object | `{}` | Overwrites affinity from global |
@@ -133,6 +148,10 @@ helm install my-release deliveryhero/locust -f values.yaml
 | worker.hpa.minReplicas | int | `1` |  |
 | worker.hpa.targetCPUUtilizationPercentage | int | `40` |  |
 | worker.image | string | `""` | A custom docker image including tag |
+| worker.keda.cooldownPeriod | int | `30` |  |
+| worker.keda.enabled | bool | `false` |  |
+| worker.keda.pollingInterval | int | `15` |  |
+| worker.keda.triggers | string | `"# https://keda.sh/docs/latest/scalers/metrics-api/\n- type: metrics-api\n  metadata:\n    activationTargetValue: \"0\"\n    targetValue: \"50\"   # Scale pods based on target users\n    url: \"http://{{ template \"locust.fullname\" . }}.{{ .Release.Namespace }}.svc.cluster.local:{{ $.Values.service.port }}/stats/requests\"\n    format: json\n    valueLocation: 'user_count'\n"` |  |
 | worker.logLevel | string | `"INFO"` | Log level. Can be INFO or DEBUG |
 | worker.nodeSelector | object | `{}` | Overwrites nodeSelector from global |
 | worker.pdb.enabled | bool | `false` | Whether to create a PodDisruptionBudget for the worker pods |
@@ -147,4 +166,10 @@ helm install my-release deliveryhero/locust -f values.yaml
 
 | Name | Email | Url |
 | ---- | ------ | --- |
-| max-rocket-internet | <no-reply@deliveryhero.com> |  |
+| max-rocket-internet |  | <https://github.com/max-rocket-internet> |
+
+## Chart source and versions
+
+Chart source: [github.com/deliveryhero/helm-charts/locust](https://github.com/deliveryhero/helm-charts/tree/master/stable/locust)
+
+Older chart versions: [github.com/deliveryhero/helm-charts/pkgs/container/helm-charts/locust](https://github.com/deliveryhero/helm-charts/pkgs/container/helm-charts%2Flocust)

@@ -1,6 +1,6 @@
 # prometheus-locust-exporter
 
-![Version: 1.2.1](https://img.shields.io/badge/Version-1.2.1-informational?style=flat-square) ![AppVersion: v0.4.1](https://img.shields.io/badge/AppVersion-v0.4.1-informational?style=flat-square)
+![Version: 1.2.3](https://img.shields.io/badge/Version-1.2.3-informational?style=flat-square) ![AppVersion: v0.4.1](https://img.shields.io/badge/AppVersion-v0.4.1-informational?style=flat-square)
 
 A Helm chart a prometheus exporter locust load test metrics
 
@@ -8,34 +8,34 @@ A Helm chart a prometheus exporter locust load test metrics
 
 ## How to install this chart
 
-Add Delivery Hero public chart repo:
+A simple install with default values, latest chart version and generated name:
 
 ```console
-helm repo add deliveryhero https://charts.deliveryhero.io/
+helm install --generate-name oci://ghcr.io/deliveryhero/helm-charts/prometheus-locust-exporter
 ```
 
-A simple install with default values:
+To install a specific version of this chart:
 
 ```console
-helm install deliveryhero/prometheus-locust-exporter
+helm install --generate-name oci://ghcr.io/deliveryhero/helm-charts/prometheus-locust-exporter --version 1.2.3
 ```
 
 To install the chart with the release name `my-release`:
 
 ```console
-helm install my-release deliveryhero/prometheus-locust-exporter
+helm install my-release oci://ghcr.io/deliveryhero/helm-charts/prometheus-locust-exporter
 ```
 
 To install with some set values:
 
 ```console
-helm install my-release deliveryhero/prometheus-locust-exporter --set values_key1=value1 --set values_key2=value2
+helm install my-release oci://ghcr.io/deliveryhero/helm-charts/prometheus-locust-exporter --set values_key1=value1 --set values_key2=value2
 ```
 
 To install with custom values file:
 
 ```console
-helm install my-release deliveryhero/prometheus-locust-exporter -f values.yaml
+helm install my-release oci://ghcr.io/deliveryhero/helm-charts/prometheus-locust-exporter -f values.yaml
 ```
 
 ## Source Code
@@ -87,4 +87,10 @@ helm install my-release deliveryhero/prometheus-locust-exporter -f values.yaml
 
 | Name | Email | Url |
 | ---- | ------ | --- |
-| max-rocket-internet | <no-reply@deliveryhero.com> |  |
+| max-rocket-internet |  | <https://github.com/max-rocket-internet> |
+
+## Chart source and versions
+
+Chart source: [github.com/deliveryhero/helm-charts/prometheus-locust-exporter](https://github.com/deliveryhero/helm-charts/tree/master/stable/prometheus-locust-exporter)
+
+Older chart versions: [github.com/deliveryhero/helm-charts/pkgs/container/helm-charts/prometheus-locust-exporter](https://github.com/deliveryhero/helm-charts/pkgs/container/helm-charts%2Fprometheus-locust-exporter)

@@ -38,13 +38,17 @@ loadtest:
 
 image:
   repository: locustio/locust
-  tag: 2.15.1
+  tag: 2.32.2
   pullPolicy: IfNotPresent
 
 service:
   type: ClusterIP
   annotations: {}
   extraLabels: {}
+  loadBalancerIP: ""
+  port: 8089
+  targetPort: 8089
+  # nodePort: 8089
 
 master:
   # master.image -- A custom docker image including tag
@@ -78,11 +82,55 @@ master:
   # master.pdb.enabled -- Whether to create a PodDisruptionBudget for the master pod
   pdb:
     enabled: false
-  # master.auth.enabled -- When enabled, UI basic auth will be enforced with the given username and password
+  # master.auth.enabled -- When enabled using image tag 2.21.0 or later you do
+  # not need username or pass word. Older image tags you are required to
   auth:
     enabled: false
     username: ""
     password: ""
+
+  # extraPorts is a list of extra ports. Specified as a YAML list.
+  # This is useful if you need to add additional ports for monitoring.
+  extraPorts: null
+    # - containerPort: 8080
+    #   name: http-monitoring
+
+  # Used to define readinessProbe for the pod
+  readinessProbe:
+    initialDelaySeconds: 5
+    periodSeconds: 30
+    timeoutSeconds: 30
+    failureThreshold: 2
+    successThreshold: 1
+    httpGet:
+      path: /
+      port: 8089
+      scheme: HTTP
+
+  # Used to define livenessProbe for the pod
+  livenessProbe: {}
+    # initialDelaySeconds: 60
+    # periodSeconds: 30
+    # timeoutSeconds: 30
+    # failureThreshold: 2
+    # successThreshold: 1
+    # httpGet:
+    #   path: /
+    #   port: 8089
+    #   scheme: HTTP
+
+  # Used to define startupProbe for the pod
+  startupProbe: {}
+    # initialDelaySeconds: 60
+    # periodSeconds: 30
+    # timeoutSeconds: 30
+    # failureThreshold: 2
+    # successThreshold: 1
+    # httpGet:
+    #   path: /
+    #   port: 8089
+    #   scheme: HTTP
+
   # master.restartPolicy -- master pod's restartPolicy. Can be Always, OnFailure, or Never.
   restartPolicy: Always
   # master.nodeSelector -- Overwrites nodeSelector from global
@@ -106,6 +154,20 @@ worker:
     minReplicas: 1
     maxReplicas: 100
     targetCPUUtilizationPercentage: 40
+  keda:
+    enabled: false
+    pollingInterval: 15
+    cooldownPeriod: 30
+    # worker.keda,triggers - Allow passing required triggers to scale upon as string template for complex triggering
+    triggers: |
+      # https://keda.sh/docs/latest/scalers/metrics-api/
+      - type: metrics-api
+        metadata:
+          activationTargetValue: "0"
+          targetValue: "50"   # Scale pods based on target users
+          url: "http://{{ template "locust.fullname" . }}.{{ .Release.Namespace }}.svc.cluster.local:{{ $.Values.service.port }}/stats/requests"
+          format: json
+          valueLocation: 'user_count'
   # worker.resources -- resources for the locust worker
   resources: {}
     # limits:
@@ -181,3 +243,15 @@ tolerations: []
 affinity: {}
 # extraLabels -- Any extra labels to apply to all resources
 extraLabels: {}
+
+# extraObjects -- Any extra manifests to deploy alongside locust. Can be used for external secret providers
+extraObjects: []
+  # - apiVersion: "kubernetes-client.io/v1"
+  #   kind: ExternalSecret
+  #   metadata:
+  #     name: locust-secrets
+  #   spec:
+  #     backendType: gcpSecretsManager
+  #     data:
+  #       - key: app-admin-password
+  #         name: adminPassword

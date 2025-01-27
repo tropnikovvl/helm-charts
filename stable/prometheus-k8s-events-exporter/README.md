@@ -1,6 +1,6 @@
 # prometheus-k8s-events-exporter
 
-![Version: 0.2.1](https://img.shields.io/badge/Version-0.2.1-informational?style=flat-square) ![AppVersion: v1.0.0](https://img.shields.io/badge/AppVersion-v1.0.0-informational?style=flat-square)
+![Version: 0.2.2](https://img.shields.io/badge/Version-0.2.2-informational?style=flat-square) ![AppVersion: v1.0.0](https://img.shields.io/badge/AppVersion-v1.0.0-informational?style=flat-square)
 
 Exporter for kubernetes events
 
@@ -8,34 +8,34 @@ Exporter for kubernetes events
 
 ## How to install this chart
 
-Add Delivery Hero public chart repo:
+A simple install with default values, latest chart version and generated name:
 
 ```console
-helm repo add deliveryhero https://charts.deliveryhero.io/
+helm install --generate-name oci://ghcr.io/deliveryhero/helm-charts/prometheus-k8s-events-exporter
 ```
 
-A simple install with default values:
+To install a specific version of this chart:
 
 ```console
-helm install deliveryhero/prometheus-k8s-events-exporter
+helm install --generate-name oci://ghcr.io/deliveryhero/helm-charts/prometheus-k8s-events-exporter --version 0.2.2
 ```
 
 To install the chart with the release name `my-release`:
 
 ```console
-helm install my-release deliveryhero/prometheus-k8s-events-exporter
+helm install my-release oci://ghcr.io/deliveryhero/helm-charts/prometheus-k8s-events-exporter
 ```
 
 To install with some set values:
 
 ```console
-helm install my-release deliveryhero/prometheus-k8s-events-exporter --set values_key1=value1 --set values_key2=value2
+helm install my-release oci://ghcr.io/deliveryhero/helm-charts/prometheus-k8s-events-exporter --set values_key1=value1 --set values_key2=value2
 ```
 
 To install with custom values file:
 
 ```console
-helm install my-release deliveryhero/prometheus-k8s-events-exporter -f values.yaml
+helm install my-release oci://ghcr.io/deliveryhero/helm-charts/prometheus-k8s-events-exporter -f values.yaml
 ```
 
 ## Source Code
@@ -80,4 +80,10 @@ helm install my-release deliveryhero/prometheus-k8s-events-exporter -f values.ya
 
 | Name | Email | Url |
 | ---- | ------ | --- |
-| max-rocket-internet | <no-reply@deliveryhero.com> |  |
+| max-rocket-internet |  | <https://github.com/max-rocket-internet> |
+
+## Chart source and versions
+
+Chart source: [github.com/deliveryhero/helm-charts/prometheus-k8s-events-exporter](https://github.com/deliveryhero/helm-charts/tree/master/stable/prometheus-k8s-events-exporter)
+
+Older chart versions: [github.com/deliveryhero/helm-charts/pkgs/container/helm-charts/prometheus-k8s-events-exporter](https://github.com/deliveryhero/helm-charts/pkgs/container/helm-charts%2Fprometheus-k8s-events-exporter)

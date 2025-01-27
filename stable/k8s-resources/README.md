@@ -1,6 +1,6 @@
 # k8s-resources
 
-![Version: 0.6.5](https://img.shields.io/badge/Version-0.6.5-informational?style=flat-square) ![AppVersion: 0.0.1](https://img.shields.io/badge/AppVersion-0.0.1-informational?style=flat-square)
+![Version: 0.8.1](https://img.shields.io/badge/Version-0.8.1-informational?style=flat-square) ![AppVersion: 0.0.1](https://img.shields.io/badge/AppVersion-0.0.1-informational?style=flat-square)
 
 Not an application but a Helm chart to create any and many resources in Kubernetes.
 
@@ -16,6 +16,8 @@ Currently supports:
 - Service
 - ServiceAccount
 - ScaledObject (KEDA)
+- ClusterRole
+- ClusterRoleBinding
 
 Every resource type can have custom labels, annotations or a `fullnameOverride` set. See default [values.yaml](https://github.com/deliveryhero/helm-charts/blob/master/stable/k8s-resources/values.yaml) for examples.
 
@@ -23,40 +25,42 @@ Every resource type can have custom labels, annotations or a `fullnameOverride` 
 
 ## How to install this chart
 
-Add Delivery Hero public chart repo:
+A simple install with default values, latest chart version and generated name:
 
 ```console
-helm repo add deliveryhero https://charts.deliveryhero.io/
+helm install --generate-name oci://ghcr.io/deliveryhero/helm-charts/k8s-resources
 ```
 
-A simple install with default values:
+To install a specific version of this chart:
 
 ```console
-helm install deliveryhero/k8s-resources
+helm install --generate-name oci://ghcr.io/deliveryhero/helm-charts/k8s-resources --version 0.8.1
 ```
 
 To install the chart with the release name `my-release`:
 
 ```console
-helm install my-release deliveryhero/k8s-resources
+helm install my-release oci://ghcr.io/deliveryhero/helm-charts/k8s-resources
 ```
 
 To install with some set values:
 
 ```console
-helm install my-release deliveryhero/k8s-resources --set values_key1=value1 --set values_key2=value2
+helm install my-release oci://ghcr.io/deliveryhero/helm-charts/k8s-resources --set values_key1=value1 --set values_key2=value2
 ```
 
 To install with custom values file:
 
 ```console
-helm install my-release deliveryhero/k8s-resources -f values.yaml
+helm install my-release oci://ghcr.io/deliveryhero/helm-charts/k8s-resources -f values.yaml
 ```
 
 ## Values
 
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
+| ClusterRoleBindings | list | `[]` | A list ClusterRoleBindings to create |
+| ClusterRoles | list | `[]` | A list ClusterRoles to create |
 | ConfigMaps | list | `[]` | A list ConfigMap to create |
 | CronJobs | list | `[]` | A list CronJobs to create |
 | CustomResources | list | `[]` | A list resources to create that are completely custom |
@@ -75,4 +79,10 @@ helm install my-release deliveryhero/k8s-resources -f values.yaml
 
 | Name | Email | Url |
 | ---- | ------ | --- |
-| max-rocket-internet | <no-reply@deliveryhero.com> |  |
+| max-rocket-internet |  | <https://github.com/max-rocket-internet> |
+
+## Chart source and versions
+
+Chart source: [github.com/deliveryhero/helm-charts/k8s-resources](https://github.com/deliveryhero/helm-charts/tree/master/stable/k8s-resources)
+
+Older chart versions: [github.com/deliveryhero/helm-charts/pkgs/container/helm-charts/k8s-resources](https://github.com/deliveryhero/helm-charts/pkgs/container/helm-charts%2Fk8s-resources)

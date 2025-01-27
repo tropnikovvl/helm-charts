@@ -1,6 +1,6 @@
 # field-exporter
 
-![Version: 1.3.1](https://img.shields.io/badge/Version-1.3.1-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: v1.3.1](https://img.shields.io/badge/AppVersion-v1.3.1-informational?style=flat-square)
+![Version: 1.3.2](https://img.shields.io/badge/Version-1.3.2-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: v1.3.1](https://img.shields.io/badge/AppVersion-v1.3.1-informational?style=flat-square)
 
 A chart to install [field-exporter](https://github.com/deliveryhero/field-exporter). This controller is used to fill the gap in [k8s-config-connector](https://github.com/GoogleCloudPlatform/k8s-config-connector) for exporting value from Config Connector managed resources into Secrets and ConfigMaps.
 
@@ -8,34 +8,34 @@ A chart to install [field-exporter](https://github.com/deliveryhero/field-export
 
 ## How to install this chart
 
-Add Delivery Hero public chart repo:
+A simple install with default values, latest chart version and generated name:
 
 ```console
-helm repo add deliveryhero https://charts.deliveryhero.io/
+helm install --generate-name oci://ghcr.io/deliveryhero/helm-charts/field-exporter
 ```
 
-A simple install with default values:
+To install a specific version of this chart:
 
 ```console
-helm install deliveryhero/field-exporter
+helm install --generate-name oci://ghcr.io/deliveryhero/helm-charts/field-exporter --version 1.3.2
 ```
 
 To install the chart with the release name `my-release`:
 
 ```console
-helm install my-release deliveryhero/field-exporter
+helm install my-release oci://ghcr.io/deliveryhero/helm-charts/field-exporter
 ```
 
 To install with some set values:
 
 ```console
-helm install my-release deliveryhero/field-exporter --set values_key1=value1 --set values_key2=value2
+helm install my-release oci://ghcr.io/deliveryhero/helm-charts/field-exporter --set values_key1=value1 --set values_key2=value2
 ```
 
 To install with custom values file:
 
 ```console
-helm install my-release deliveryhero/field-exporter -f values.yaml
+helm install my-release oci://ghcr.io/deliveryhero/helm-charts/field-exporter -f values.yaml
 ```
 
 ## Source Code
@@ -79,5 +79,11 @@ helm install my-release deliveryhero/field-exporter -f values.yaml
 
 | Name | Email | Url |
 | ---- | ------ | --- |
-| vzholudev | <no-reply@deliveryhero.com> | <https://github.com/vzholudev> |
-| mtahaahmed | <no-reply@deliveryhero.com> | <https://github.com/mtahaahmed> |
+| vzholudev |  | <https://github.com/vzholudev> |
+| mtahaahmed |  | <https://github.com/mtahaahmed> |
+
+## Chart source and versions
+
+Chart source: [github.com/deliveryhero/helm-charts/field-exporter](https://github.com/deliveryhero/helm-charts/tree/master/stable/field-exporter)
+
+Older chart versions: [github.com/deliveryhero/helm-charts/pkgs/container/helm-charts/field-exporter](https://github.com/deliveryhero/helm-charts/pkgs/container/helm-charts%2Ffield-exporter)

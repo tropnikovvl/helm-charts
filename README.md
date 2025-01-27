@@ -6,13 +6,23 @@
 
 ## TLDR
 
+Charts are released as OCI packages and can be installed like this:
+
 ```console
-helm repo add deliveryhero https://charts.deliveryhero.io/
-helm search repo deliveryhero
-helm install my-release deliveryhero/<chart>
+helm install my-release oci://ghcr.io/deliveryhero/helm-charts/<chart>
 ```
 
-[![adding deliveryhero chart repo](img/add-repo.gif)](#)
+There is also a Helm charts repository that can be added:
+
+```console
+helm repo add deliveryhero https://raw.githubusercontent.com/deliveryhero/helm-charts/refs/heads/master/
+```
+
+Then charts can also be installed like this:
+
+```console
+helm install my-release deliveryhero/<chart>
+```
 
 ## Chart list
 
@@ -93,7 +103,7 @@ Follow these steps:
 1. Fork this repo
 2. Make desired changes to the chart
 3. Bump the chart version
-4. Regenerate the chart `README.md`: `docker run --rm -v "${PWD}:/helm-docs" jnorwood/helm-docs:v1.11.3 --template-files ./ci/README.md.gotmpl`
+4. Regenerate the chart `README.md`. Run from the repo root: `docker run --rm -v "${PWD}:/helm-docs" jnorwood/helm-docs:v1.11.3 --template-files ./ci/README.md.gotmpl`
 5. Commit and push changes
 6. Open 1 pull request per chart you want to change
 7. Set pull request title to `[stable/<chart name>]: <description>`
@@ -118,16 +128,17 @@ All commands to be run from the root of this repo.
 
 `helm-docs`:
 
-  To generate chart `README.md` files from the [template](ci/README.md.gotmpl):
+  To generate chart `README.md` files from the [template](ci/README.md.gotmpl), you can run `helm-docs` via docker:
 
   ```console
-  <!-- docker -->
-  docker run --rm -v "${PWD}:/helm-docs" jnorwood/helm-docs:v1.11.3 --template-files ./ci/README.md.gotmpl
-  <!-- pre-commit -->
-  # install pre-commit https://pre-commit.com/#install
-  $ brew install pre-commit
-  $  pre-commit install
-  $ pre-commit install-hooks
+  docker run --rm -v "$(git rev-parse --show-toplevel):/helm-docs" jnorwood/helm-docs:v1.11.3 --template-files ./ci/README.md.gotmpl
+  ```
+
+  Or alternatively install via [pre-commit](https://pre-commit.com/#install):
+
+  ```console
+  pre-commit install
+  pre-commit install-hooks
   ```
 
 `helm-conftest`:

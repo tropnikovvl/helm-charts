@@ -1,6 +1,6 @@
 # prometheus-aws-health-exporter
 
-![Version: 0.1.5](https://img.shields.io/badge/Version-0.1.5-informational?style=flat-square) ![AppVersion: 1.0](https://img.shields.io/badge/AppVersion-1.0-informational?style=flat-square)
+![Version: 0.1.6](https://img.shields.io/badge/Version-0.1.6-informational?style=flat-square) ![AppVersion: 1.0](https://img.shields.io/badge/AppVersion-1.0-informational?style=flat-square)
 
 AWS Health API Exporter for Prometheus
 
@@ -8,34 +8,34 @@ AWS Health API Exporter for Prometheus
 
 ## How to install this chart
 
-Add Delivery Hero public chart repo:
+A simple install with default values, latest chart version and generated name:
 
 ```console
-helm repo add deliveryhero https://charts.deliveryhero.io/
+helm install --generate-name oci://ghcr.io/deliveryhero/helm-charts/prometheus-aws-health-exporter
 ```
 
-A simple install with default values:
+To install a specific version of this chart:
 
 ```console
-helm install deliveryhero/prometheus-aws-health-exporter
+helm install --generate-name oci://ghcr.io/deliveryhero/helm-charts/prometheus-aws-health-exporter --version 0.1.6
 ```
 
 To install the chart with the release name `my-release`:
 
 ```console
-helm install my-release deliveryhero/prometheus-aws-health-exporter
+helm install my-release oci://ghcr.io/deliveryhero/helm-charts/prometheus-aws-health-exporter
 ```
 
 To install with some set values:
 
 ```console
-helm install my-release deliveryhero/prometheus-aws-health-exporter --set values_key1=value1 --set values_key2=value2
+helm install my-release oci://ghcr.io/deliveryhero/helm-charts/prometheus-aws-health-exporter --set values_key1=value1 --set values_key2=value2
 ```
 
 To install with custom values file:
 
 ```console
-helm install my-release deliveryhero/prometheus-aws-health-exporter -f values.yaml
+helm install my-release oci://ghcr.io/deliveryhero/helm-charts/prometheus-aws-health-exporter -f values.yaml
 ```
 
 ## Source Code
@@ -74,5 +74,11 @@ helm install my-release deliveryhero/prometheus-aws-health-exporter -f values.ya
 
 | Name | Email | Url |
 | ---- | ------ | --- |
-| max-rocket-internet | <no-reply@deliveryhero.com> |  |
-| javad-hajiani | <no-reply@deliveryhero.com> |  |
+| max-rocket-internet |  | <https://github.com/max-rocket-internet> |
+| javad-hajiani |  | <https://github.com/javad-hajiani> |
+
+## Chart source and versions
+
+Chart source: [github.com/deliveryhero/helm-charts/prometheus-aws-health-exporter](https://github.com/deliveryhero/helm-charts/tree/master/stable/prometheus-aws-health-exporter)
+
+Older chart versions: [github.com/deliveryhero/helm-charts/pkgs/container/helm-charts/prometheus-aws-health-exporter](https://github.com/deliveryhero/helm-charts/pkgs/container/helm-charts%2Fprometheus-aws-health-exporter)

@@ -1,6 +1,6 @@
 # rds-downscaler
 
-![Version: 1.0.4](https://img.shields.io/badge/Version-1.0.4-informational?style=flat-square) ![AppVersion: 1.0](https://img.shields.io/badge/AppVersion-1.0-informational?style=flat-square)
+![Version: 1.0.5](https://img.shields.io/badge/Version-1.0.5-informational?style=flat-square) ![AppVersion: 1.0](https://img.shields.io/badge/AppVersion-1.0-informational?style=flat-square)
 
 A small python script that runs on a cron schedule and periodically downscales AWS RDS instances.
 
@@ -10,34 +10,34 @@ It will filter RDS instances/clusters by tag key and value or a particular clust
 
 ## How to install this chart
 
-Add Delivery Hero public chart repo:
+A simple install with default values, latest chart version and generated name:
 
 ```console
-helm repo add deliveryhero https://charts.deliveryhero.io/
+helm install --generate-name oci://ghcr.io/deliveryhero/helm-charts/rds-downscaler
 ```
 
-A simple install with default values:
+To install a specific version of this chart:
 
 ```console
-helm install deliveryhero/rds-downscaler
+helm install --generate-name oci://ghcr.io/deliveryhero/helm-charts/rds-downscaler --version 1.0.5
 ```
 
 To install the chart with the release name `my-release`:
 
 ```console
-helm install my-release deliveryhero/rds-downscaler
+helm install my-release oci://ghcr.io/deliveryhero/helm-charts/rds-downscaler
 ```
 
 To install with some set values:
 
 ```console
-helm install my-release deliveryhero/rds-downscaler --set values_key1=value1 --set values_key2=value2
+helm install my-release oci://ghcr.io/deliveryhero/helm-charts/rds-downscaler --set values_key1=value1 --set values_key2=value2
 ```
 
 To install with custom values file:
 
 ```console
-helm install my-release deliveryhero/rds-downscaler -f values.yaml
+helm install my-release oci://ghcr.io/deliveryhero/helm-charts/rds-downscaler -f values.yaml
 ```
 
 ## Values
@@ -69,4 +69,10 @@ helm install my-release deliveryhero/rds-downscaler -f values.yaml
 
 | Name | Email | Url |
 | ---- | ------ | --- |
-| max-rocket-internet | <max.williams@deliveryhero.com> |  |
+| max-rocket-internet |  | <https://github.com/max-rocket-internet> |
+
+## Chart source and versions
+
+Chart source: [github.com/deliveryhero/helm-charts/rds-downscaler](https://github.com/deliveryhero/helm-charts/tree/master/stable/rds-downscaler)
+
+Older chart versions: [github.com/deliveryhero/helm-charts/pkgs/container/helm-charts/rds-downscaler](https://github.com/deliveryhero/helm-charts/pkgs/container/helm-charts%2Frds-downscaler)

@@ -1,6 +1,7 @@
 {{- if .Values.HorizontalPodAutoscalers -}}
 {{- range .Values.HorizontalPodAutoscalers }}
-apiVersion: autoscaling/v2beta1
+{{- if . | dig "enabled" true }}
+apiVersion: autoscaling/v2
 kind: HorizontalPodAutoscaler
 metadata:
 {{- if .namespace }}
@@ -26,14 +27,19 @@ spec:
   - type: Resource
     resource:
       name: cpu
-      targetAverageUtilization: {{ .targetCPUUtilizationPercentage }}
+      target:
+          type: Utilization
+          averageUtilization: {{ .targetCPUUtilizationPercentage }}
 {{- end }}
 {{- if .targetMemoryUtilizationPercentage }}
   - type: Resource
     resource:
       name: memory
-      targetAverageUtilization: {{ .targetMemoryUtilizationPercentage }}
+      target:
+          type: Utilization
+          averageUtilization: {{ .targetMemoryUtilizationPercentage }}
 {{- end }}
 ---
+{{- end }}
 {{- end }}
 {{- end }}

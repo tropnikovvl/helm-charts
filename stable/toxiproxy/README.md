@@ -1,6 +1,6 @@
 # toxiproxy
 
-![Version: 1.3.8](https://img.shields.io/badge/Version-1.3.8-informational?style=flat-square) ![AppVersion: 2.7.0](https://img.shields.io/badge/AppVersion-2.7.0-informational?style=flat-square)
+![Version: 1.3.9](https://img.shields.io/badge/Version-1.3.9-informational?style=flat-square) ![AppVersion: 2.7.0](https://img.shields.io/badge/AppVersion-2.7.0-informational?style=flat-square)
 
 A TCP proxy to simulate network and system conditions for chaos and resiliency testing.
 
@@ -22,34 +22,34 @@ helm install toxiproxy deliveryhero/toxiproxy --set toxiproxyConfig=my-toxiproxy
 
 ## How to install this chart
 
-Add Delivery Hero public chart repo:
+A simple install with default values, latest chart version and generated name:
 
 ```console
-helm repo add deliveryhero https://charts.deliveryhero.io/
+helm install --generate-name oci://ghcr.io/deliveryhero/helm-charts/toxiproxy
 ```
 
-A simple install with default values:
+To install a specific version of this chart:
 
 ```console
-helm install deliveryhero/toxiproxy
+helm install --generate-name oci://ghcr.io/deliveryhero/helm-charts/toxiproxy --version 1.3.9
 ```
 
 To install the chart with the release name `my-release`:
 
 ```console
-helm install my-release deliveryhero/toxiproxy
+helm install my-release oci://ghcr.io/deliveryhero/helm-charts/toxiproxy
 ```
 
 To install with some set values:
 
 ```console
-helm install my-release deliveryhero/toxiproxy --set values_key1=value1 --set values_key2=value2
+helm install my-release oci://ghcr.io/deliveryhero/helm-charts/toxiproxy --set values_key1=value1 --set values_key2=value2
 ```
 
 To install with custom values file:
 
 ```console
-helm install my-release deliveryhero/toxiproxy -f values.yaml
+helm install my-release oci://ghcr.io/deliveryhero/helm-charts/toxiproxy -f values.yaml
 ```
 
 ## Source Code
@@ -114,4 +114,10 @@ helm install my-release deliveryhero/toxiproxy -f values.yaml
 
 | Name | Email | Url |
 | ---- | ------ | --- |
-| nreymundo | <no-reply@deliveryhero.com> |  |
+| nreymundo |  | <https://github.com/nreymundo> |
+
+## Chart source and versions
+
+Chart source: [github.com/deliveryhero/helm-charts/toxiproxy](https://github.com/deliveryhero/helm-charts/tree/master/stable/toxiproxy)
+
+Older chart versions: [github.com/deliveryhero/helm-charts/pkgs/container/helm-charts/toxiproxy](https://github.com/deliveryhero/helm-charts/pkgs/container/helm-charts%2Ftoxiproxy)

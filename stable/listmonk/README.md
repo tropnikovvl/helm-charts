@@ -1,6 +1,6 @@
 # listmonk
 
-![Version: 0.1.9](https://img.shields.io/badge/Version-0.1.9-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: v2.1.0](https://img.shields.io/badge/AppVersion-v2.1.0-informational?style=flat-square)
+![Version: 0.1.12](https://img.shields.io/badge/Version-0.1.12-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: v2.1.0](https://img.shields.io/badge/AppVersion-v2.1.0-informational?style=flat-square)
 
 A Helm chart for listmonk application
 
@@ -8,39 +8,45 @@ A Helm chart for listmonk application
 
 ## How to install this chart
 
-Add Delivery Hero public chart repo:
+A simple install with default values, latest chart version and generated name:
 
 ```console
-helm repo add deliveryhero https://charts.deliveryhero.io/
+helm install --generate-name oci://ghcr.io/deliveryhero/helm-charts/listmonk
 ```
 
-A simple install with default values:
+To install a specific version of this chart:
 
 ```console
-helm install deliveryhero/listmonk
+helm install --generate-name oci://ghcr.io/deliveryhero/helm-charts/listmonk --version 0.1.12
 ```
 
 To install the chart with the release name `my-release`:
 
 ```console
-helm install my-release deliveryhero/listmonk
+helm install my-release oci://ghcr.io/deliveryhero/helm-charts/listmonk
 ```
 
 To install with some set values:
 
 ```console
-helm install my-release deliveryhero/listmonk --set values_key1=value1 --set values_key2=value2
+helm install my-release oci://ghcr.io/deliveryhero/helm-charts/listmonk --set values_key1=value1 --set values_key2=value2
 ```
 
 To install with custom values file:
 
 ```console
-helm install my-release deliveryhero/listmonk -f values.yaml
+helm install my-release oci://ghcr.io/deliveryhero/helm-charts/listmonk -f values.yaml
 ```
 
 ## Source Code
 
 * <https://github.com/knadh/listmonk>
+
+## Requirements
+
+| Repository | Name | Version |
+|------------|------|---------|
+| https://charts.bitnami.com/bitnami | postgresql | 11.6.26 |
 
 ## Values
 
@@ -93,4 +99,10 @@ helm install my-release deliveryhero/listmonk -f values.yaml
 
 | Name | Email | Url |
 | ---- | ------ | --- |
-| javad-hajiani | <no-reply@deliveryhero.com> |  |
+| javad-hajiani |  | <https://github.com/javad-hajiani> |
+
+## Chart source and versions
+
+Chart source: [github.com/deliveryhero/helm-charts/listmonk](https://github.com/deliveryhero/helm-charts/tree/master/stable/listmonk)
+
+Older chart versions: [github.com/deliveryhero/helm-charts/pkgs/container/helm-charts/listmonk](https://github.com/deliveryhero/helm-charts/pkgs/container/helm-charts%2Flistmonk)

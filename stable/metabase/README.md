@@ -1,6 +1,6 @@
 # metabase
 
-![Version: 0.14.3](https://img.shields.io/badge/Version-0.14.3-informational?style=flat-square) ![AppVersion: v0.45.2](https://img.shields.io/badge/AppVersion-v0.45.2-informational?style=flat-square)
+![Version: 0.14.4](https://img.shields.io/badge/Version-0.14.4-informational?style=flat-square) ![AppVersion: v0.45.2](https://img.shields.io/badge/AppVersion-v0.45.2-informational?style=flat-square)
 
 The easy, open source way for everyone in your company to ask questions and learn from data.
 
@@ -8,34 +8,34 @@ The easy, open source way for everyone in your company to ask questions and lear
 
 ## How to install this chart
 
-Add Delivery Hero public chart repo:
+A simple install with default values, latest chart version and generated name:
 
 ```console
-helm repo add deliveryhero https://charts.deliveryhero.io/
+helm install --generate-name oci://ghcr.io/deliveryhero/helm-charts/metabase
 ```
 
-A simple install with default values:
+To install a specific version of this chart:
 
 ```console
-helm install deliveryhero/metabase
+helm install --generate-name oci://ghcr.io/deliveryhero/helm-charts/metabase --version 0.14.4
 ```
 
 To install the chart with the release name `my-release`:
 
 ```console
-helm install my-release deliveryhero/metabase
+helm install my-release oci://ghcr.io/deliveryhero/helm-charts/metabase
 ```
 
 To install with some set values:
 
 ```console
-helm install my-release deliveryhero/metabase --set values_key1=value1 --set values_key2=value2
+helm install my-release oci://ghcr.io/deliveryhero/helm-charts/metabase --set values_key1=value1 --set values_key2=value2
 ```
 
 To install with custom values file:
 
 ```console
-helm install my-release deliveryhero/metabase -f values.yaml
+helm install my-release oci://ghcr.io/deliveryhero/helm-charts/metabase -f values.yaml
 ```
 
 ## Source Code
@@ -98,4 +98,10 @@ helm install my-release deliveryhero/metabase -f values.yaml
 
 | Name | Email | Url |
 | ---- | ------ | --- |
-| nyambati | <no-reply@deliveryhero.com> |  |
+| nyambati |  | <https://github.com/nyambati> |
+
+## Chart source and versions
+
+Chart source: [github.com/deliveryhero/helm-charts/metabase](https://github.com/deliveryhero/helm-charts/tree/master/stable/metabase)
+
+Older chart versions: [github.com/deliveryhero/helm-charts/pkgs/container/helm-charts/metabase](https://github.com/deliveryhero/helm-charts/pkgs/container/helm-charts%2Fmetabase)

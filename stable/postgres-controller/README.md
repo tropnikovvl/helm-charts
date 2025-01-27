@@ -1,6 +1,6 @@
 # postgres-controller
 
-![Version: 1.3](https://img.shields.io/badge/Version-1.3-informational?style=flat-square) ![AppVersion: 0.5](https://img.shields.io/badge/AppVersion-0.5-informational?style=flat-square)
+![Version: 1.4](https://img.shields.io/badge/Version-1.4-informational?style=flat-square) ![AppVersion: 0.5](https://img.shields.io/badge/AppVersion-0.5-informational?style=flat-square)
 
 A controller for managing PostgreSQL databases, roles and more
 
@@ -8,34 +8,34 @@ A controller for managing PostgreSQL databases, roles and more
 
 ## How to install this chart
 
-Add Delivery Hero public chart repo:
+A simple install with default values, latest chart version and generated name:
 
 ```console
-helm repo add deliveryhero https://charts.deliveryhero.io/
+helm install --generate-name oci://ghcr.io/deliveryhero/helm-charts/postgres-controller
 ```
 
-A simple install with default values:
+To install a specific version of this chart:
 
 ```console
-helm install deliveryhero/postgres-controller
+helm install --generate-name oci://ghcr.io/deliveryhero/helm-charts/postgres-controller --version 1.4
 ```
 
 To install the chart with the release name `my-release`:
 
 ```console
-helm install my-release deliveryhero/postgres-controller
+helm install my-release oci://ghcr.io/deliveryhero/helm-charts/postgres-controller
 ```
 
 To install with some set values:
 
 ```console
-helm install my-release deliveryhero/postgres-controller --set values_key1=value1 --set values_key2=value2
+helm install my-release oci://ghcr.io/deliveryhero/helm-charts/postgres-controller --set values_key1=value1 --set values_key2=value2
 ```
 
 To install with custom values file:
 
 ```console
-helm install my-release deliveryhero/postgres-controller -f values.yaml
+helm install my-release oci://ghcr.io/deliveryhero/helm-charts/postgres-controller -f values.yaml
 ```
 
 ## Source Code
@@ -69,4 +69,10 @@ helm install my-release deliveryhero/postgres-controller -f values.yaml
 
 | Name | Email | Url |
 | ---- | ------ | --- |
-| max-rocket-internet | <no-reply@deliveryhero.com> |  |
+| max-rocket-internet |  | <https://github.com/max-rocket-internet> |
+
+## Chart source and versions
+
+Chart source: [github.com/deliveryhero/helm-charts/postgres-controller](https://github.com/deliveryhero/helm-charts/tree/master/stable/postgres-controller)
+
+Older chart versions: [github.com/deliveryhero/helm-charts/pkgs/container/helm-charts/postgres-controller](https://github.com/deliveryhero/helm-charts/pkgs/container/helm-charts%2Fpostgres-controller)

@@ -1,6 +1,6 @@
 # superset
 
-![Version: 1.1.2](https://img.shields.io/badge/Version-1.1.2-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: latest](https://img.shields.io/badge/AppVersion-latest-informational?style=flat-square)
+![Version: 1.1.3](https://img.shields.io/badge/Version-1.1.3-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: latest](https://img.shields.io/badge/AppVersion-latest-informational?style=flat-square)
 
 A Helm chart for Apache Superset
 
@@ -8,34 +8,34 @@ A Helm chart for Apache Superset
 
 ## How to install this chart
 
-Add Delivery Hero public chart repo:
+A simple install with default values, latest chart version and generated name:
 
 ```console
-helm repo add deliveryhero https://charts.deliveryhero.io/
+helm install --generate-name oci://ghcr.io/deliveryhero/helm-charts/superset
 ```
 
-A simple install with default values:
+To install a specific version of this chart:
 
 ```console
-helm install deliveryhero/superset
+helm install --generate-name oci://ghcr.io/deliveryhero/helm-charts/superset --version 1.1.3
 ```
 
 To install the chart with the release name `my-release`:
 
 ```console
-helm install my-release deliveryhero/superset
+helm install my-release oci://ghcr.io/deliveryhero/helm-charts/superset
 ```
 
 To install with some set values:
 
 ```console
-helm install my-release deliveryhero/superset --set values_key1=value1 --set values_key2=value2
+helm install my-release oci://ghcr.io/deliveryhero/helm-charts/superset --set values_key1=value1 --set values_key2=value2
 ```
 
 To install with custom values file:
 
 ```console
-helm install my-release deliveryhero/superset -f values.yaml
+helm install my-release oci://ghcr.io/deliveryhero/helm-charts/superset -f values.yaml
 ```
 
 ## Source Code
@@ -144,3 +144,9 @@ helm install my-release deliveryhero/superset -f values.yaml
 | Name | Email | Url |
 | ---- | ------ | --- |
 | nyambati | <thomas.nyambati@deliveryhero.com> |  |
+
+## Chart source and versions
+
+Chart source: [github.com/deliveryhero/helm-charts/superset](https://github.com/deliveryhero/helm-charts/tree/master/stable/superset)
+
+Older chart versions: [github.com/deliveryhero/helm-charts/pkgs/container/helm-charts/superset](https://github.com/deliveryhero/helm-charts/pkgs/container/helm-charts%2Fsuperset)

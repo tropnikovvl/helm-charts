@@ -1,6 +1,6 @@
 # prometheus-spot-termination-exporter
 
-![Version: 0.2.10](https://img.shields.io/badge/Version-0.2.10-informational?style=flat-square) ![AppVersion: 0.0.2](https://img.shields.io/badge/AppVersion-0.0.2-informational?style=flat-square)
+![Version: 0.2.11](https://img.shields.io/badge/Version-0.2.11-informational?style=flat-square) ![AppVersion: 0.0.2](https://img.shields.io/badge/AppVersion-0.0.2-informational?style=flat-square)
 
 Spot instance termination exporter for Prometheus
 
@@ -8,34 +8,34 @@ Spot instance termination exporter for Prometheus
 
 ## How to install this chart
 
-Add Delivery Hero public chart repo:
+A simple install with default values, latest chart version and generated name:
 
 ```console
-helm repo add deliveryhero https://charts.deliveryhero.io/
+helm install --generate-name oci://ghcr.io/deliveryhero/helm-charts/prometheus-spot-termination-exporter
 ```
 
-A simple install with default values:
+To install a specific version of this chart:
 
 ```console
-helm install deliveryhero/prometheus-spot-termination-exporter
+helm install --generate-name oci://ghcr.io/deliveryhero/helm-charts/prometheus-spot-termination-exporter --version 0.2.11
 ```
 
 To install the chart with the release name `my-release`:
 
 ```console
-helm install my-release deliveryhero/prometheus-spot-termination-exporter
+helm install my-release oci://ghcr.io/deliveryhero/helm-charts/prometheus-spot-termination-exporter
 ```
 
 To install with some set values:
 
 ```console
-helm install my-release deliveryhero/prometheus-spot-termination-exporter --set values_key1=value1 --set values_key2=value2
+helm install my-release oci://ghcr.io/deliveryhero/helm-charts/prometheus-spot-termination-exporter --set values_key1=value1 --set values_key2=value2
 ```
 
 To install with custom values file:
 
 ```console
-helm install my-release deliveryhero/prometheus-spot-termination-exporter -f values.yaml
+helm install my-release oci://ghcr.io/deliveryhero/helm-charts/prometheus-spot-termination-exporter -f values.yaml
 ```
 
 ## Source Code
@@ -72,4 +72,10 @@ helm install my-release deliveryhero/prometheus-spot-termination-exporter -f val
 
 | Name | Email | Url |
 | ---- | ------ | --- |
-| sietevecesmal | <no-reply@deliveryhero.com> |  |
+| sietevecesmal |  | <https://github.com/sietevecesmal> |
+
+## Chart source and versions
+
+Chart source: [github.com/deliveryhero/helm-charts/prometheus-spot-termination-exporter](https://github.com/deliveryhero/helm-charts/tree/master/stable/prometheus-spot-termination-exporter)
+
+Older chart versions: [github.com/deliveryhero/helm-charts/pkgs/container/helm-charts/prometheus-spot-termination-exporter](https://github.com/deliveryhero/helm-charts/pkgs/container/helm-charts%2Fprometheus-spot-termination-exporter)

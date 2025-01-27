@@ -1,6 +1,6 @@
 # wiremock
 
-![Version: 1.4.1](https://img.shields.io/badge/Version-1.4.1-informational?style=flat-square) ![AppVersion: 2.26.0](https://img.shields.io/badge/AppVersion-2.26.0-informational?style=flat-square)
+![Version: 1.4.6](https://img.shields.io/badge/Version-1.4.6-informational?style=flat-square) ![AppVersion: 2.26.0](https://img.shields.io/badge/AppVersion-2.26.0-informational?style=flat-square)
 
 A service virtualization tool (some call it mock server) for testing purposes.
 
@@ -79,34 +79,34 @@ consumer:
 
 ## How to install this chart
 
-Add Delivery Hero public chart repo:
+A simple install with default values, latest chart version and generated name:
 
 ```console
-helm repo add deliveryhero https://charts.deliveryhero.io/
+helm install --generate-name oci://ghcr.io/deliveryhero/helm-charts/wiremock
 ```
 
-A simple install with default values:
+To install a specific version of this chart:
 
 ```console
-helm install deliveryhero/wiremock
+helm install --generate-name oci://ghcr.io/deliveryhero/helm-charts/wiremock --version 1.4.6
 ```
 
 To install the chart with the release name `my-release`:
 
 ```console
-helm install my-release deliveryhero/wiremock
+helm install my-release oci://ghcr.io/deliveryhero/helm-charts/wiremock
 ```
 
 To install with some set values:
 
 ```console
-helm install my-release deliveryhero/wiremock --set values_key1=value1 --set values_key2=value2
+helm install my-release oci://ghcr.io/deliveryhero/helm-charts/wiremock --set values_key1=value1 --set values_key2=value2
 ```
 
 To install with custom values file:
 
 ```console
-helm install my-release deliveryhero/wiremock -f values.yaml
+helm install my-release oci://ghcr.io/deliveryhero/helm-charts/wiremock -f values.yaml
 ```
 
 ## Source Code
@@ -121,7 +121,8 @@ helm install my-release deliveryhero/wiremock -f values.yaml
 | affinity | object | `{}` |  |
 | consumer.args | list | `[]` | custom WireMock startup arguments. |
 | consumer.args_include_default | bool | `true` | whether WireMock arguments for performance test setup should be included |
-| consumer.environment | object | `{}` |  |
+| consumer.environment | object | `{}` | environment variables used in the WireMock container |
+| consumer.environment_secret | object | `{}` | environment variables used in the WireMock container, stored as secrets |
 | consumer.initContainer | list | `[]` | support for stubs with large files using binary container with zip archive. |
 | consumer.initVolume | list | `[]` | custom extra volume for the initialization container providing the zip archive. |
 | consumer.name | string | `"example"` | a name used for resources and settings in this WireMock |
@@ -163,6 +164,8 @@ helm install my-release deliveryhero/wiremock -f values.yaml
 | resources.requests.memory | string | `"3Gi"` |  |
 | service.port | int | `80` |  |
 | service.type | string | `"ClusterIP"` |  |
+| serviceAccount.annotations | object | `{}` |  |
+| serviceAccount.enabled | bool | `false` |  |
 | serviceAnnotations | object | `{}` |  |
 | strategy.type | string | `"RollingUpdate"` |  |
 | tolerations | list | `[]` |  |
@@ -171,4 +174,10 @@ helm install my-release deliveryhero/wiremock -f values.yaml
 
 | Name | Email | Url |
 | ---- | ------ | --- |
-| mshero | <no-reply@deliveryhero.com> |  |
+| mshero |  | <https://github.com/mshero> |
+
+## Chart source and versions
+
+Chart source: [github.com/deliveryhero/helm-charts/wiremock](https://github.com/deliveryhero/helm-charts/tree/master/stable/wiremock)
+
+Older chart versions: [github.com/deliveryhero/helm-charts/pkgs/container/helm-charts/wiremock](https://github.com/deliveryhero/helm-charts/pkgs/container/helm-charts%2Fwiremock)

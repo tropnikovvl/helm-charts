@@ -1,6 +1,6 @@
 # backstage
 
-![Version: 0.1.13](https://img.shields.io/badge/Version-0.1.13-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: v0.1.1-alpha.23](https://img.shields.io/badge/AppVersion-v0.1.1--alpha.23-informational?style=flat-square)
+![Version: 0.1.15](https://img.shields.io/badge/Version-0.1.15-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: v0.1.1-alpha.23](https://img.shields.io/badge/AppVersion-v0.1.1--alpha.23-informational?style=flat-square)
 
 A Helm chart for Backstage
 
@@ -8,34 +8,34 @@ A Helm chart for Backstage
 
 ## How to install this chart
 
-Add Delivery Hero public chart repo:
+A simple install with default values, latest chart version and generated name:
 
 ```console
-helm repo add deliveryhero https://charts.deliveryhero.io/
+helm install --generate-name oci://ghcr.io/deliveryhero/helm-charts/backstage
 ```
 
-A simple install with default values:
+To install a specific version of this chart:
 
 ```console
-helm install deliveryhero/backstage
+helm install --generate-name oci://ghcr.io/deliveryhero/helm-charts/backstage --version 0.1.15
 ```
 
 To install the chart with the release name `my-release`:
 
 ```console
-helm install my-release deliveryhero/backstage
+helm install my-release oci://ghcr.io/deliveryhero/helm-charts/backstage
 ```
 
 To install with some set values:
 
 ```console
-helm install my-release deliveryhero/backstage --set values_key1=value1 --set values_key2=value2
+helm install my-release oci://ghcr.io/deliveryhero/helm-charts/backstage --set values_key1=value1 --set values_key2=value2
 ```
 
 To install with custom values file:
 
 ```console
-helm install my-release deliveryhero/backstage -f values.yaml
+helm install my-release oci://ghcr.io/deliveryhero/helm-charts/backstage -f values.yaml
 ```
 
 ## Source Code
@@ -186,5 +186,11 @@ helm install my-release deliveryhero/backstage -f values.yaml
 
 | Name | Email | Url |
 | ---- | ------ | --- |
-| javad-hajiani | <no-reply@deliveryhero.com> |  |
-| nyambati | <no-reply@deliveryhero.com> |  |
+| javad-hajiani |  | <https://github.com/javad-hajiani> |
+| nyambati |  | <https://github.com/nyambati> |
+
+## Chart source and versions
+
+Chart source: [github.com/deliveryhero/helm-charts/backstage](https://github.com/deliveryhero/helm-charts/tree/master/stable/backstage)
+
+Older chart versions: [github.com/deliveryhero/helm-charts/pkgs/container/helm-charts/backstage](https://github.com/deliveryhero/helm-charts/pkgs/container/helm-charts%2Fbackstage)

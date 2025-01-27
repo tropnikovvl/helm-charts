@@ -1,6 +1,6 @@
 # cluster-overprovisioner
 
-![Version: 0.7.11](https://img.shields.io/badge/Version-0.7.11-informational?style=flat-square) ![AppVersion: 3.9](https://img.shields.io/badge/AppVersion-3.9-informational?style=flat-square)
+![Version: 0.7.13](https://img.shields.io/badge/Version-0.7.13-informational?style=flat-square) ![AppVersion: 3.9](https://img.shields.io/badge/AppVersion-3.9-informational?style=flat-square)
 
 This chart provide a buffer for cluster autoscaling to allow overprovisioning of cluster nodes. This is desired when you have work loads that need to scale up quickly without waiting for the new cluster nodes to be created and join the cluster.
 
@@ -12,34 +12,34 @@ This approach is the [current recommended method to achieve overprovisioning](ht
 
 ## How to install this chart
 
-Add Delivery Hero public chart repo:
+A simple install with default values, latest chart version and generated name:
 
 ```console
-helm repo add deliveryhero https://charts.deliveryhero.io/
+helm install --generate-name oci://ghcr.io/deliveryhero/helm-charts/cluster-overprovisioner
 ```
 
-A simple install with default values:
+To install a specific version of this chart:
 
 ```console
-helm install deliveryhero/cluster-overprovisioner
+helm install --generate-name oci://ghcr.io/deliveryhero/helm-charts/cluster-overprovisioner --version 0.7.13
 ```
 
 To install the chart with the release name `my-release`:
 
 ```console
-helm install my-release deliveryhero/cluster-overprovisioner
+helm install my-release oci://ghcr.io/deliveryhero/helm-charts/cluster-overprovisioner
 ```
 
 To install with some set values:
 
 ```console
-helm install my-release deliveryhero/cluster-overprovisioner --set values_key1=value1 --set values_key2=value2
+helm install my-release oci://ghcr.io/deliveryhero/helm-charts/cluster-overprovisioner --set values_key1=value1 --set values_key2=value2
 ```
 
 To install with custom values file:
 
 ```console
-helm install my-release deliveryhero/cluster-overprovisioner -f values.yaml
+helm install my-release oci://ghcr.io/deliveryhero/helm-charts/cluster-overprovisioner -f values.yaml
 ```
 
 ## Source Code
@@ -86,10 +86,17 @@ helm install my-release deliveryhero/cluster-overprovisioner -f values.yaml
 | serviceAccount.automountServiceAccountToken | bool | `true` | Automount API credentials for a Service Account |
 | serviceAccount.create | bool | `true` | Determine whether a Service Account should be created or it should reuse an exiting one |
 | serviceAccount.name | string | `nil` | The name of the ServiceAccount to use. If not set and create is `true`, a name is generated using the fullname template |
+| terminationGracePeriodSeconds | int | `0` | Time for graceful pod termination |
 
 ## Maintainers
 
 | Name | Email | Url |
 | ---- | ------ | --- |
-| max-rocket-internet | <max.williams@deliveryhero.com> |  |
+| max-rocket-internet |  | <https://github.com/max-rocket-internet> |
 | mmingorance-dh | <miguel.mingorance@deliveryhero.com> |  |
+
+## Chart source and versions
+
+Chart source: [github.com/deliveryhero/helm-charts/cluster-overprovisioner](https://github.com/deliveryhero/helm-charts/tree/master/stable/cluster-overprovisioner)
+
+Older chart versions: [github.com/deliveryhero/helm-charts/pkgs/container/helm-charts/cluster-overprovisioner](https://github.com/deliveryhero/helm-charts/pkgs/container/helm-charts%2Fcluster-overprovisioner)

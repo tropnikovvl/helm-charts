@@ -28,6 +28,9 @@ spec:
 {{ toYaml . | trim | indent 8 }}
 {{- end}}
     spec:
+{{- if .Values.serviceAccount.enabled }}
+      serviceAccount: {{ template "wiremock.fullname" . }}
+{{- end }}
       {{- with .Values.image.pullSecrets }}
       imagePullSecrets:
         {{- toYaml . | indent 8 }}
@@ -76,6 +79,14 @@ spec:
 {{- range $key, $value := .Values.consumer.environment }}
           - name: {{ $key }}
             value: {{ $value | quote }}
+{{- end }}
+
+{{- range $key, $value := .Values.consumer.environment_secret }}
+          - name: {{ $key }}
+            valueFrom:
+              secretKeyRef:
+                name: {{ template "wiremock.fullname" $ }}
+                key: {{ $key }}
 {{- end }}
 
 {{- if .Values.consumer.args_include_default }}

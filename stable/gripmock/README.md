@@ -1,6 +1,6 @@
 # gripmock
 
-![Version: 1.1.2](https://img.shields.io/badge/Version-1.1.2-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.10.1](https://img.shields.io/badge/AppVersion-1.10.1-informational?style=flat-square)
+![Version: 1.1.3](https://img.shields.io/badge/Version-1.1.3-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.10.1](https://img.shields.io/badge/AppVersion-1.10.1-informational?style=flat-square)
 
 A chart to install [gripmock](https://github.com/tokopedia/gripmock). A mock server for GRPC services. It uses `.proto` file(s) to generate the implementation of gRPC service(s) for you.
 
@@ -12,34 +12,34 @@ A chart to install [gripmock](https://github.com/tokopedia/gripmock). A mock ser
 
 ## How to install this chart
 
-Add Delivery Hero public chart repo:
+A simple install with default values, latest chart version and generated name:
 
 ```console
-helm repo add deliveryhero https://charts.deliveryhero.io/
+helm install --generate-name oci://ghcr.io/deliveryhero/helm-charts/gripmock
 ```
 
-A simple install with default values:
+To install a specific version of this chart:
 
 ```console
-helm install deliveryhero/gripmock
+helm install --generate-name oci://ghcr.io/deliveryhero/helm-charts/gripmock --version 1.1.3
 ```
 
 To install the chart with the release name `my-release`:
 
 ```console
-helm install my-release deliveryhero/gripmock
+helm install my-release oci://ghcr.io/deliveryhero/helm-charts/gripmock
 ```
 
 To install with some set values:
 
 ```console
-helm install my-release deliveryhero/gripmock --set values_key1=value1 --set values_key2=value2
+helm install my-release oci://ghcr.io/deliveryhero/helm-charts/gripmock --set values_key1=value1 --set values_key2=value2
 ```
 
 To install with custom values file:
 
 ```console
-helm install my-release deliveryhero/gripmock -f values.yaml
+helm install my-release oci://ghcr.io/deliveryhero/helm-charts/gripmock -f values.yaml
 ```
 
 ## Values
@@ -84,3 +84,9 @@ helm install my-release deliveryhero/gripmock -f values.yaml
 | Name | Email | Url |
 | ---- | ------ | --- |
 | MarceloAplanalp | <marcelo.aplanalp@deliveryhero.com> |  |
+
+## Chart source and versions
+
+Chart source: [github.com/deliveryhero/helm-charts/gripmock](https://github.com/deliveryhero/helm-charts/tree/master/stable/gripmock)
+
+Older chart versions: [github.com/deliveryhero/helm-charts/pkgs/container/helm-charts/gripmock](https://github.com/deliveryhero/helm-charts/pkgs/container/helm-charts%2Fgripmock)

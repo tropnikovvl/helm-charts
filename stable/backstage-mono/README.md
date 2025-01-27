@@ -1,6 +1,6 @@
 # backstage-mono
 
-![Version: 0.1.1](https://img.shields.io/badge/Version-0.1.1-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 0.0.1](https://img.shields.io/badge/AppVersion-0.0.1-informational?style=flat-square)
+![Version: 0.1.3](https://img.shields.io/badge/Version-0.1.3-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 0.0.1](https://img.shields.io/badge/AppVersion-0.0.1-informational?style=flat-square)
 
 A Helm chart for simple backstage deployment. This chart deploys a single pod for both backstage frontend and backend.
 
@@ -8,34 +8,34 @@ A Helm chart for simple backstage deployment. This chart deploys a single pod fo
 
 ## How to install this chart
 
-Add Delivery Hero public chart repo:
+A simple install with default values, latest chart version and generated name:
 
 ```console
-helm repo add deliveryhero https://charts.deliveryhero.io/
+helm install --generate-name oci://ghcr.io/deliveryhero/helm-charts/backstage-mono
 ```
 
-A simple install with default values:
+To install a specific version of this chart:
 
 ```console
-helm install deliveryhero/backstage-mono
+helm install --generate-name oci://ghcr.io/deliveryhero/helm-charts/backstage-mono --version 0.1.3
 ```
 
 To install the chart with the release name `my-release`:
 
 ```console
-helm install my-release deliveryhero/backstage-mono
+helm install my-release oci://ghcr.io/deliveryhero/helm-charts/backstage-mono
 ```
 
 To install with some set values:
 
 ```console
-helm install my-release deliveryhero/backstage-mono --set values_key1=value1 --set values_key2=value2
+helm install my-release oci://ghcr.io/deliveryhero/helm-charts/backstage-mono --set values_key1=value1 --set values_key2=value2
 ```
 
 To install with custom values file:
 
 ```console
-helm install my-release deliveryhero/backstage-mono -f values.yaml
+helm install my-release oci://ghcr.io/deliveryhero/helm-charts/backstage-mono -f values.yaml
 ```
 
 ## Values
@@ -66,4 +66,10 @@ helm install my-release deliveryhero/backstage-mono -f values.yaml
 
 | Name | Email | Url |
 | ---- | ------ | --- |
-| goelankitt | <no-reply@deliveryhero.com> |  |
+| goelankitt |  | <https://github.com/goelankitt> |
+
+## Chart source and versions
+
+Chart source: [github.com/deliveryhero/helm-charts/backstage-mono](https://github.com/deliveryhero/helm-charts/tree/master/stable/backstage-mono)
+
+Older chart versions: [github.com/deliveryhero/helm-charts/pkgs/container/helm-charts/backstage-mono](https://github.com/deliveryhero/helm-charts/pkgs/container/helm-charts%2Fbackstage-mono)
